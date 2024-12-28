@@ -1,3 +1,4 @@
+
 const API_WEATHER = `https://api.weatherapi.com/v1/current.json?key=${import.meta.env.VITE_API_KEY}`;
 
 export const getWeatherData = async (city) => {

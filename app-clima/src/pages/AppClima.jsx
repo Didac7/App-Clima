@@ -10,26 +10,26 @@ export const AppClima = () => {
     const { toggleTheme } = useThemeToggle();
     const { clima, loading, error, fetchWeather } = useWeatherApi();
 
-    const [background, setBackground] = useState(''); // Para almacenar el fondo dinámico
+    const [background, setBackground] = useState(''); 
 
     useEffect(() => {
         if (clima.conditionText) {
             switch (clima.conditionText.toLowerCase()) {
                 case 'soleado':
-                    setBackground('url(https://png.pngtree.com/background/20230519/original/pngtree-cartoon-sun-in-a-sunny-landscape-picture-image_2666701.jpg)'); // Ruta de la imagen de fondo soleado
+                    setBackground('url(https://png.pngtree.com/background/20230519/original/pngtree-cartoon-sun-in-a-sunny-landscape-picture-image_2666701.jpg)'); 
                     break;
                 case 'parcialmente nublado':
-                    setBackground('url(https://aforisticamente.com/wp-content/uploads/2018/03/nubes3a.jpg)'); // Ruta de la imagen de fondo nublado
+                    setBackground('url(https://aforisticamente.com/wp-content/uploads/2018/03/nubes3a.jpg)'); 
                     break;
                 case 'lluvia  moderada a intervalos':
-                    setBackground('url(https://thumbs.dreamstime.com/b/paisaje-de-dibujos-animados-con-pozo-piedra-y-lluvia-vector-viejo-agua-potable-en-la-colina-verde-el-tiempo-lluvioso-verano-214182372.jpg)'); // Ruta de la imagen de fondo lluvioso
+                    setBackground('url(https://thumbs.dreamstime.com/b/paisaje-de-dibujos-animados-con-pozo-piedra-y-lluvia-vector-viejo-agua-potable-en-la-colina-verde-el-tiempo-lluvioso-verano-214182372.jpg)'); 
                     break;
                 default:
-                    setBackground(''); // Fondo por defecto
+                    setBackground(''); 
                     break;
             }
         }
-    }, [clima.conditionText]); // Se ejecuta cada vez que cambie la condición climática
+    }, [clima.conditionText]);
 
     const onSubmit = (evento) => {
         evento.preventDefault();
