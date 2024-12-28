@@ -1,11 +1,13 @@
-import { Container, Typography } from "@mui/material";
+import { Container, Typography, FormControlLabel, Switch } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useWeatherApi } from "../hooks/useWeatherApi";
+import { useThemeToggle } from "../context/ThemeContext";
 import { Form } from "../components/Form";
 import { WeatherInfo } from "../components/WeatherInfo";
 
 export const AppClima = () => {
     const [city, setCity] = useState("");
+    const { toggleTheme } = useThemeToggle();
     const { clima, loading, error, fetchWeather } = useWeatherApi();
 
     const [background, setBackground] = useState(''); // Para almacenar el fondo dinámico
@@ -52,6 +54,12 @@ export const AppClima = () => {
             />
 
             <WeatherInfo clima={clima} />
+
+            <FormControlLabel
+                control={<Switch onChange={toggleTheme} />}
+                label="Modo Oscuro"
+                sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}
+            />
 
             <Typography textAlign="center" sx={{ mt: 2, fontSize: "10px" }}>
                 Powered by:{" "}
